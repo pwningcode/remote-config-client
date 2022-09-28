@@ -1,0 +1,84 @@
+{
+	"name": "@pwningcode/remote-config-client",
+	"version": "0.1.0",
+	"description": "Simple javascript client for retrieving application configuration hosted remotely via a public URL",
+	"author": "Jason Barnes",
+	"license": "MIT",
+	"homepage": "https://github.com/pwningcode/remote-config-client#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pwningcode/remote-config-client.git"
+	},
+	"module": "dist/test.esm.js",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"files": [
+		"dist",
+		"src"
+	],
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"start": "tsdx watch",
+		"build": "tsdx build",
+		"test": "tsdx test",
+		"test:watch": "tsdx test --watchAll",
+		"test:coverage": "tsdx test --coverage",
+		"lint": "tsdx lint",
+		"lint:fix": "tsdx lint --fix",
+		"prepare": "tsdx build",
+		"size": "size-limit",
+		"analyze": "size-limit --why",
+		"clean": "rimraf node_modules coverage dist"
+	},
+	"jest": {
+		"setupFilesAfterEnv": [
+			"./testSetup.js"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "tsdx lint"
+		}
+	},
+	"prettier": {
+		"printWidth": 80,
+		"semi": true,
+		"singleQuote": true,
+		"trailingComma": "es5",
+		"useTabs": true,
+		"tabWidth": 4
+	},
+	"size-limit": [
+		{
+			"path": "dist/remote-config-client.cjs.production.min.js",
+			"limit": "10 KB"
+		},
+		{
+			"path": "dist/remote-config-client.esm.js",
+			"limit": "10 KB"
+		}
+	],
+	"devDependencies": {
+		"@types/jest": "^29.0.2",
+		"@size-limit/preset-small-lib": "^8.1.0",
+		"@types/lodash": "^4.14.185",
+		"husky": "^8.0.1",
+		"isomorphic-fetch": "^3.0.0",
+		"jest-extended": "^3.1.0",
+		"jest-fetch-mock": "^3.0.3",
+		"rimraf": "^3.0.2",
+		"size-limit": "^8.1.0",
+		"tsdx": "^0.14.1",
+		"tslib": "^2.4.0",
+		"typescript": "^4.8.4"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21"
+	},
+	"resolutions": {
+		"**/tsdx/jest": "^29.0.2",
+		"**/tsdx/ts-jest": "^29.0.2"
+	}
+}
